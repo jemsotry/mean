@@ -1,0 +1,96 @@
+<section>
+  <div class="page-header">
+    <h1>Productos</h1>
+    <h4>{{total}} total</h4>
+  </div>
+
+  <div>
+   <!-- <table st-table="vm.productos" class="table table-striped">-->
+   <!--<table class="table" st-pipe="vm.list" st-table="vm.displayed">-->
+   <!--<table class="table" st-table="vm.displayed">-->
+   <!--{{ vm.rowCollection }} <br/>
+   {{ displayedCollection }}-->
+   <form>
+    <label for="predicate">selected predicate:</label>
+    <select class="form-control" id="predicate" ng-model="selectedPredicate" ng-options="predicate for predicate in predicates"></select>
+  </form>
+    <table class="table table-striped" st-table="displayedCollection" st-safe-src="rowCollection">
+      <thead>
+        <tr>
+          <th st-sort="name">Nombre</th>
+          <th st-sort="descripcion">Descripcion</th>
+          <th st-sort="precio">Precio</th>
+          <th>Ver</th>
+          <th>Modificar</th>
+          <th>Eliminar</th>
+        </tr>
+        <tr>
+          <th>
+            <!--<input input st-search="name"/>-->
+            <input st-search="name" placeholder="Buscar por nombre" class="input-sm form-control" type="search"/>
+          </th>
+          <th colspan="3">
+            <input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+          </th>
+          <th>
+            <input st-search="{{selectedPredicate}}" placeholder="bound predicate" class="input-sm form-control" type="search"/>
+          </th>
+
+        </tr>
+      </thead>
+      <tbody ng-show="!vm.isLoading">
+          <tr ng-repeat="producto in displayedCollection">
+          <td>{{producto.name}}</td>
+          <td>{{producto.descripcion}}</td>
+          <td>{{producto.precio | currency}}</td>
+
+         <td>
+            <button type="button" data-ui-sref="productos.view({ productoId: producto._id })" class="btn btn-sm btn-default">
+              <i class="glyphicon glyphicon-eye-open">
+              </i>
+            </button>
+          </td>
+
+          <td>
+            <button type="button" data-ui-sref="productos.edit({ productoId: producto._id })" class="btn btn-sm btn-primary">
+              <i class="glyphicon glyphicon-edit">
+              </i>
+            </button>
+          </td>
+
+          <td>
+            <button type="button" data-ng-click="vm.remove(producto)" class="btn btn-sm btn-danger">
+              <i class="glyphicon glyphicon-trash">
+              </i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody ng-show="vm.isLoading">
+        <tr>
+          <td colspan="6" class="text-center">Loading ... </td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td class="text-center" colspan="6">
+            <!--<div st-items-by-page="2" st-pagination="" st-template="/pagination.html"></div>-->
+                <pagination 
+                  ng-model="currentPage"
+                  total-items="total"
+                  max-size="maxSize"  
+                  boundary-links="true">
+                </pagination>
+          </td>
+        </tr>
+      </tfoot>
+
+    </table>
+
+  </div>
+
+  <div class="alert alert-warning text-center" data-ng-if="vm.productos.$resolved && !vm.productos.length">
+    No Productos yet, why don't you <a data-ui-sref="productos.create">create one</a>?
+  </div>
+</section>

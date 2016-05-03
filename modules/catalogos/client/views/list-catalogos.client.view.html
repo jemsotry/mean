@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Catalogos</h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="catalogo in vm.catalogos"
+       data-ui-sref="catalogos.view({ catalogoId: catalogo._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span data-ng-bind="catalogo.created | date:'mediumDate'"></span>
+        by
+        <span data-ng-if="catalogo.user" data-ng-bind="catalogo.user.displayName"></span>
+        <span data-ng-if="!catalogo.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" data-ng-bind="catalogo.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="vm.catalogos.$resolved && !vm.catalogos.length">
+    No Catalogos yet, why don't you <a data-ui-sref="catalogos.create">create one</a>?
+  </div>
+</section>
