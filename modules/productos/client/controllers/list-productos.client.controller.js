@@ -53,6 +53,7 @@
         $scope.total = response.total;
         vm.isLoading = false;
       });
+      // comentario
       //for (var i=1;i<=1000;i++) {
         //$scope.todos.push({ text:'todo '+i, done:false});
       //}
