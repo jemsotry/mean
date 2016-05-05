@@ -15,14 +15,14 @@
     vm.isLoading = true;
 
     //------- Pagination configuration
-    $scope.displayedCollection = [],
-    $scope.rowCollection = [],
-    $scope.currentPage = 1,
-    $scope.numPerPage = 10,
-    $scope.total = 0,
-    $scope.maxSize = 5,
+    $scope.displayedCollection = [];
+    $scope.rowCollection = [];
+    $scope.currentPage = 1;
+    $scope.numPerPage = 10;
+    $scope.total = 0;
+    $scope.maxSize = 5;,
     //-------
-    $scope.predicates = ['name', 'descripcion', 'precio'],
+    $scope.predicates = ['name', 'descripcion', 'precio'];
     $scope.selectedPredicate = $scope.predicates[0];
 
     // Remove existing Producto
