@@ -8,16 +8,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/meanjs/mean.git"
+    "url": "https://github.com/jemsotry/mean.git"
   },
   "engines": {
     "node": ">=0.10.28",
     "npm": ">=1.4.28"
   },
   "scripts": {
-    "start": "grunt",
-    "test": "grunt test",
-    "postinstall": "bower install --config.interactive=false"
+    "start": "node node_modules/grunt-cli/bin/grunt",
+    "test": "node node_modules/grunt-cli/bin/grunt test",
+    "postinstall": "HOME=$HOME/app-root/runtime node node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "acl": "~0.4.4",
