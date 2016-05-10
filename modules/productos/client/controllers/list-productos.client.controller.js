@@ -34,7 +34,7 @@
           //$scope.total = scope.displayedCollection.length;
           //$scope.displayCollection = [].concat($scope.rowCollection);
           //$scope.displayCollection.splice(index, 1);
-          $state.reload();
+            $state.reload();
           });
         }
       }
