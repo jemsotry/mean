@@ -14,10 +14,10 @@
     "node": ">=0.10.28",
     "npm": ">=1.4.28"
   },
-  "scripts": {
-    "start": "node node_modules/grunt-cli/bin/grunt",
-    "test": "node node_modules/grunt-cli/bin/grunt test",
-    "postinstall": "HOME=$HOME/app-root/runtime node node_modules/bower/bin/bower install"
+    "scripts": {
+    "start": "grunt",
+    "test": "grunt test",
+    "postinstall": "bower install --config.interactive=false"
   },
   "dependencies": {
     "acl": "~0.4.4",
