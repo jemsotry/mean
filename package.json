@@ -6,7 +6,7 @@
   "private": false,
   "author": "EduardoTriano",
   "license": "MIT",
-  "main": "server.js",
+  "main": "config/lib/app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/jemsotry/mean.git"
@@ -16,7 +16,7 @@
     "npm": ">=1.4.28"
   },
     "scripts": {
-    "start": "node server.js",
+    "start": "node app",
     "test": "grunt test",
     "postinstall": "bower install --config.interactive=false"
   },
