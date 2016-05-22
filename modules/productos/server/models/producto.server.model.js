@@ -5,7 +5,6 @@
  */
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
-require('mongoose-middleware').initialize(mongoose);
 /**
  * Producto Schema
  */
@@ -39,3 +38,4 @@ var ProductoSchema = new Schema({
 });
 
 mongoose.model('Producto', ProductoSchema);
+require('mongoose-middleware').initialize(mongoose);
