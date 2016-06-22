@@ -2,7 +2,15 @@
   <div class="page-header">
     <h1 data-ng-bind="vm.producto.name"></h1>
     Descripcion : {{vm.producto.descripcion}}<br/>
-    Precio: {{vm.producto.precio}}
+    Precio: {{vm.producto.precio}}<br/> <br/> 
+    <div class="panel-body" ng-repeat="image in vm.producto.images" style="vertical-align: top;">
+      <!----------- {{$index}} ---------<br/>-->
+      <!-- aqui meteré mi directiva con la imagen-->
+      <!--<img ng-src="data:image/jpeg;base64,{{image}}" id="photo-id" width="200" height="200"/>-->
+      <image ng-src="{{image}}" width="200" height="200"/>
+
+    </div>
+
   </div>
   <div class="pull-right"
        data-ng-show="vm.producto.isCurrentUserOwner">

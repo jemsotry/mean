@@ -5,7 +5,8 @@ module.exports = {
     lib: {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'public/lib/ng-img-crop/compile/minified/ng-img-crop.css'
       ],
       js: [
         'public/lib/angular/angular.js',
@@ -17,7 +18,11 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        'public/lib/angular-smart-table/dist/smart-table.js'
+        'public/lib/angular-smart-table/dist/smart-table.js',
+        'public/lib/ng-file-upload/FileAPI.min.js', 
+        'public/lib/ng-file-upload/ng-file-upload-shim.min.js',
+        'public/lib/ng-file-upload/ng-file-upload.min.js',
+        'public/lib/ng-img-crop/compile/minified/ng-img-crop.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

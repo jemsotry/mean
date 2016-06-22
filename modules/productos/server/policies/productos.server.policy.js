@@ -31,6 +31,15 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
+    roles: ['user'],
+    allows: [{
+      resources: '/uploads/img',
+      permissions: ['get', 'post']
+    }, {
+      resources: '/api/productos/:productoId',
+      permissions: ['get']
+    }]
+  }, {
     roles: ['guest'],
     allows: [{
       resources: '/api/productos',

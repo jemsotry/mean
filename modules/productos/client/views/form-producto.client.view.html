@@ -22,12 +22,107 @@
         </div>
 
         <div class="form-group" show-errors>
+          <label class="control-label" for="quantity">Cantidad</label>
+          <input name="quantity" type="text" ng-model="vm.producto.quantity" id="quantity" class="form-control" placeholder="Cantidad" required>
+          <div ng-messages="vm.form.productoForm.quantity.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Producto quantity is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
           <label class="control-label" for="precio">Precio</label>
           <input name="precio" type="text" ng-model="vm.producto.precio" id="precio" class="form-control" placeholder="Precio" required>
           <div ng-messages="vm.form.productoForm.precio.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Producto name is required.</p>
           </div>
         </div>
+
+        <div class="form-group" ng-if="vm.producto" show-errors>
+          <input type="file" ngf-select="uploadFiles($files, $invalidFiles, $index)" multiple
+          accept="image/*" ngf-max-height="1000" ngf-max-size="2MB" name="file" class="form-control"/>
+          <br><br>
+          Files:
+          <ul>
+            <li ng-repeat="f in vm.images" style="font:smaller">
+              {{f.name}} {{f.$errorParam}}
+              <span class="progress" ng-show="f.progress >= 0">
+                <div style="width:{{f.progress}}%"        
+                    ng-bind="f.progress + '%'"></div>
+              </span>
+              <!--<button ng-click="f = null" ng-show="f">Remove</button>-->
+              <br>
+            </li>
+            <li ng-repeat="f in errFiles" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
+            </li> 
+          </ul>
+          <div class="form-group" ng-if="checkIMG == false" >
+            <div ng-repeat="image in vm.producto.images" style="vertical-align: top;">
+              <img ng-src="{{image}}" id="photo-id" width="200" height="200">
+            </div>
+          </div>
+          <div class="form-group" id="dvPreview">
+
+          {{errorMsg}}
+        </div>
+        
+          <!-- CROP IMAGE
+          <label class="control-label" for="image">Imagen</label>
+          <button ngf-select ng-model="vm.producto.image" accept="image/*">
+              Seleccionar Imagen</button>
+          <div ngf-drop ng-model="vm.producto.image" ngf-pattern="image/*"
+               class="cropArea">
+              <img-crop image="vm.producto.image  | ngfDataUrl"                 
+              result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+              </img-crop>
+          </div>
+          <div>
+              <img ng-src="{{croppedDataUrl}}"/>
+          </div>  -->
+          <!--<button ng-click="upload(croppedDataUrl, picFile.name)">Submit</button> -->
+              
+          <!--<span class="progress" ng-show="progress >= 0">
+            <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
+          </span>
+          <span ng-show="result">Upload Successful</span>
+          <span class="err" ng-show="errorMsg">{{errorMsg}}</span>-->
+
+          <!--
+            UPLOAD per image -->
+          <!--<div ng-if="vm.producto._id">
+            <div ng-repeat="f in vm.producto.images">
+              <div ng-switch on="f">
+                <div ng-switch-when="f">
+                  <img ng-src="data:image/jpeg;base64,{{f}}" ng-show="f != null" id="photo-id1" width="200" height="200" ng-click="editImage($index)" />
+                </div>
+                <div ng-switch-default>
+                  <img id="photo-id" ng-model="picFile" width="200" height="200" ngf-thumbnail="picFile" />
+                  <button ng-click="picFile = null" ng-show="f">Remove</button>
+
+                  <button type="file" ng-model="picFile"
+                  accept="image/*" ngf-max-height="1000" ngf-max-size="1MB" ngf-select="uploadFile($file, $invalidFiles, $index)">Cambiar imagen</button>
+                </div>
+              </div>
+
+            </div>
+          </div>-->
+
+
+
+
+        <!--<div class="form-group">
+          <label class="control-label" for="image">Article Picture</label>
+           
+         <div class="controls">
+              <input id="articleimage" type="file" ng-file-select="" ng-model="vm.producto.image" name="file" accept="image/*" required="">
+              <br/>
+             <img ng-show="image[0].dataUrl != null" ng-src="{{image[0].dataUrl}}" class="img-thumbnail" height="50" width="100">
+              <span class="progress" ng-show="image[0].progress >= 0">      
+              <div style="width:{{image[0].progress}}%" ng-bind="image[0].progress + '%'" class="ng-binding"></div>
+              </span> 
+              <span ng-show="image[0].result">Upload Successful</span>
+          </div>
+ 
+        </div>-->
 
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.producto._id ? 'Update' : 'Create'}}</button>

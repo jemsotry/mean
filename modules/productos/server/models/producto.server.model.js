@@ -27,6 +27,16 @@ var ProductoSchema = new Schema({
     required: 'Please fill Producto precio',
     trim: true
   },
+  quantity: {
+    type: String,
+    default: '0',
+    required: 'Please fill Producto quantity',
+    trim: true
+  },
+  images: [{
+    type: String,
+    default: '',
+  }],
   created: {
     type: Date,
     default: Date.now
